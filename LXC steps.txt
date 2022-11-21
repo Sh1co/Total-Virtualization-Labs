@@ -1,0 +1,8 @@
+sudo lxc launch ubuntu/16.04 c1
+sudo lxc file push benchmark.sh c1/
+sudo lxc exec c1 bash
+
+#In the container's bash
+#After installing sysbench
+cd ..
+sh benchmark

@@ -1,0 +1,137 @@
+Starting cpu test!
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 1
+
+Doing CPU performance benchmark
+
+Threads started!
+Done.
+
+Maximum prime number checked in CPU test: 20000
+
+
+Test execution summary:
+    total time:                          21.2408s
+    total number of events:              10000
+    total time taken by event execution: 21.2312
+    per-request statistics:
+         min:                                  2.03ms
+         avg:                                  2.12ms
+         max:                                 15.96ms
+         approx.  95 percentile:               2.24ms
+
+Threads fairness:
+    events (avg/stddev):           10000.0000/0.00
+    execution time (avg/stddev):   21.2312/0.00
+
+CPU test complete!
+Starting file IO tests!
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+128 files, 400Kb each, 50Mb total
+Creating files for the test...
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 1
+
+Extra file open flags: 0
+128 files, 400Kb each
+50Mb total file size
+Block size 16Kb
+Number of random requests for random IO: 0
+Read/Write ratio for combined random IO test: 1.50
+Periodic FSYNC enabled, calling fsync() each 100 requests.
+Calling fsync() at the end of test, Enabled.
+Using synchronous I/O mode
+Doing random r/w test
+Threads started!
+Time limit exceeded, exiting...
+Done.
+
+Operations performed:  161520 Read, 107680 Write, 344557 Other = 613757 Total
+Read 2.4646Gb  Written 1.6431Gb  Total transferred 4.1077Gb  (14.021Mb/sec)
+  897.33 Requests/sec executed
+
+Test execution summary:
+    total time:                          300.0007s
+    total number of events:              269200
+    total time taken by event execution: 2.0691
+    per-request statistics:
+         min:                                  0.00ms
+         avg:                                  0.01ms
+         max:                                  8.89ms
+         approx.  95 percentile:               0.01ms
+
+Threads fairness:
+    events (avg/stddev):           269200.0000/0.00
+    execution time (avg/stddev):   2.0691/0.00
+
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Removing test files...
+File IO tests complete!
+Starting memory test!
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 4
+
+Doing memory operations speed test
+Memory block size: 1K
+
+Memory transfer size: 0M
+
+Memory operations type: write
+Memory scope type: global
+Threads started!
+Done.
+
+Operations performed: 0 (    0.00 ops/sec)
+
+0.00 MB transferred (0.00 MB/sec)
+
+
+Test execution summary:
+    total time:                          0.0068s
+    total number of events:              0
+    total time taken by event execution: 0.0000
+    per-request statistics:
+         min:                            18446744073709.55ms
+         avg:                                  0.00ms
+         max:                                  0.00ms
+
+Threads fairness:
+    events (avg/stddev):           0.0000/0.00
+    execution time (avg/stddev):   0.0000/0.00
+
+Starting memory test complete!
+Starting threads test!
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 1
+
+Doing thread subsystem performance test
+Thread yields per test: 1000 Locks used: 1
+Threads started!
+Done.
+
+
+Test execution summary:
+    total time:                          8.4796s
+    total number of events:              10000
+    total time taken by event execution: 8.4624
+    per-request statistics:
+         min:                                  0.78ms
+         avg:                                  0.85ms
+         max:                                  6.76ms
+         approx.  95 percentile:               0.93ms
+
+Threads fairness:
+    events (avg/stddev):           10000.0000/0.00
+    execution time (avg/stddev):   8.4624/0.00
+
+Threads test complete!
