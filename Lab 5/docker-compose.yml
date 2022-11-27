@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 
 networks:
   rabbitmq: {}
@@ -6,6 +6,14 @@ networks:
 services:
   rabbitmq:
     image: rabbitmq:3.11-management
+    deploy:
+      resources:
+        limits:
+          cpus: '1.00'
+          memory: 500M
+        reservations:
+          cpus: '1.00'
+          memory: 200M
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -17,6 +25,12 @@ services:
 
   rabbitmq-reader:
     image: sh1co/rabbitmq-reader:1.1.0
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
     networks:
       - rabbitmq
     depends_on:
