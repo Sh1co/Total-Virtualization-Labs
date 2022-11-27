@@ -1,5 +1,8 @@
+# Inspired by : https://www.rabbitmq.com/tutorials/tutorial-three-python.html
+
 import pika
 import sys
+import time
 
 
 host = "localhost"
@@ -12,10 +15,17 @@ try:
     credentials = pika.PlainCredentials(sys.argv[3], sys.argv[4])
 except IndexError:
     pass
+for i in range(5):
+    try:
+        connection = pika.BlockingConnection(
+            pika.ConnectionParameters(host=host, port=port, credentials=credentials)
+        )
+    except pika.exceptions.AMQPConnectionError:
+        print(f"Connect attempt #{i+1} failed, trying again in 5 secs.")
+        time.sleep(5)
+    else:
+        break
 
-connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host="localhost", port=port, credentials=credentials)
-)
 channel = connection.channel()
 
 channel.exchange_declare(exchange="logs", exchange_type="fanout")
