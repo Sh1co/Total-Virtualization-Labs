@@ -13,4 +13,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the main code
 COPY --chown=app:app app.py .
 
-CMD [ "python", "app.py", "localhost", "5672", "guest", "guest" ]
+CMD [ "python", "app.py", "rabbitmq", "5672", "guest", "guest" ]
