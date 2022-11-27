@@ -1,0 +1,23 @@
+version: "3"
+
+networks:
+  rabbitmq: {}
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    expose:
+      - 5672
+      - 15672
+    networks:
+      - rabbitmq
+
+  rabbitmq-reader:
+    image: sh1co/rabbitmq-reader:1.1.0
+    networks:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
